@@ -1,0 +1,15 @@
+<div class="article-locker">
+  <p>This post has been encrypted. Please enter a password to unlock this post.
+  <p>Password: 
+    <input class="pwd" type="password" > <br>
+    <input class="remember" type=checkbox> Remember my password. <br>
+    <input class="submit" value="Submit" type=button> <br>
+    <span class="error-msg"></span>
+  <script class="removing">
+  <!--
+    window.encData = <%- json %>;
+  -->
+  </script>
+  <script class="removing" src="/js/client-decrypt.js"></script>
+</div>
+<div class="article-decrypted"></div>

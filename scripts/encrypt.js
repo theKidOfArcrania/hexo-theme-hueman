@@ -1,8 +1,8 @@
+const ejs = require('ejs');
+const assign = require('object-assign');
 
-hexo.extend.renderer.register('enc', 'html', function (data) {
+hexo.extend.renderer.register('enc', 'html', function (data, locals) {
   json = JSON.stringify(JSON.parse(data.text));
-  return '<p>This post has been encrypted. Please enter a password to unlock ' +
-    'this post.</p> <p><label>Password: <input type="password"></label>' + 
-    '<input value="submit" type="button" onclick="decryptPost()"></p>' +
-    '<script><!--\n window.encData = ' + json  + ';\n--></script>';
+  view = hexo.theme.getView('encrypt-inner');
+  return view.render(assign({'json': json}, locals));
 });
